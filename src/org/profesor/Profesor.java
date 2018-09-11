@@ -1,18 +1,25 @@
 package org.profesor;
 
 import javax.persistence.*;
-
-import org.centroprofesores.*;
 import org.espacio_utilizado.*;
+import org.persona.*;
+import org.programa.*;
+
 @Entity
-public class Profesor extends Centrodeprofesores {
-	@Id 
+public class Profesor extends Persona {
+	@Id @Column(length=5)
 	private int cod_profesor;
+	@Column(length=30)
 	private String materia;
-	private int cantidad_de_clases;
+	@Column(length=30)
 	private Espacio_utilizado utiliza;
+	HACER RELACION
+	@ManyToOne
+	private Programa progra;
 	
 	/*GETTERS AND SETTERS*/
+	
+	
 	public int getCod_profesor() {
 		return cod_profesor;
 	}
@@ -25,18 +32,12 @@ public class Profesor extends Centrodeprofesores {
 	public void setMateria(String materia) {
 		this.materia = materia;
 	}
-	public int getCantidad_de_clases() {
-		return cantidad_de_clases;
-	}
-	public void setCantidad_de_clases(int cantidad_de_clases) {
-		this.cantidad_de_clases = cantidad_de_clases;
-	}
 	public Espacio_utilizado getUtiliza() {
 		return utiliza;
 	}
 	public void setUtiliza(Espacio_utilizado utiliza) {
 		this.utiliza = utiliza;
 	}
-
 	
+
 }
